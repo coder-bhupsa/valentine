@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question for Tanaya 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #e74c3c;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .message {
+            font-size: 1.3rem;
+            color: #333;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .question {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .no-btn {
+            background: #95a5a6;
+            color: white;
+            position: relative;
+        }
+
+        .no-btn:hover {
+            background: #7f8c8d;
+        }
+
+        .hearts {
+            position: fixed;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 4s ease-in infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .success-message {
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .celebration {
+            font-size: 4rem;
+            margin: 1rem 0;
+        }
+
+        .gif-container {
+            margin: 1.5rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+    
+    <div class="container">
+        <div id="proposal">
+            <h1>Hey Tanaya! 💕</h1>
+            
+            <div class="message">
+                So... I've been thinking 🤔<br>
+                (which is dangerous, I know 😅)
+            </div>
+
+            <div class="message">
+                And I realized something important:<br>
+                Valentine's Day is coming up and I'd be a complete fool<br>
+                to not ask the most amazing and beautiful person I know...
+            </div>
+
+            <div class="question">
+                Will you be my Valentine? 💝
+            </div>
+
+            <div class="message">
+                I promise to:<br>
+                ✓ to always loves you even when you get wrinkles on your face <br>
+                ✓ Laugh at your jokes (even the bad ones)<br>
+                ✓ Give you the best hugs<br>
+                ✓ Support you in all your dreams<br>
+                ✓ give you best sex in the world<br>
+                ✓ Be your partner in crime! 😎
+            </div>
+
+            <div class="buttons">
+                <button class="yes-btn" onclick="sayYes()">YES! 💖</button>
+                <button class="no-btn" id="noBtn" onclick="moveButton(event)">No :(</button>
+            </div>
+        </div>
+
+        <div id="success" class="success-message">
+            <div class="celebration">🎉 🥳 🎊</div>
+            <h1>YAAAY! 💕</h1>
+            <div class="message">
+                I know you can't say no,mai hu hi itna pyaara 😄<br>
+                This is going to be the BEST Valentine's Day ever!
+            </div>
+            <div class="gif-container">
+                <img src="v-day image.jpeg" alt="Happy celebration">
+            </div>
+            <div class="message highlight">
+                Can't wait to celebrate with you 💝
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let noClickCount = 0;
+        const funnyMessages = [
+            "Are you sure? 🥺",
+            "Really? Think again! 💭",
+            "The 'Yes' button is right there! 👇",
+            "You're breaking my heart! 💔",
+            "i can satisfy you in bed,with my cock, i can make you scream with pleasure, i can make you cum in seconds, i can be",
+            "babu please say yes aaj se nakhre krna band kr dunga 🙏",
+            "I promise mai teko kabhi bhi nhi rulaunga and agar esa hua to kabhi bhi rote hue nhi chodunga hamesa manunga please say yes babu",
+            "Final answer? 🤨",
+            "fir se no, maan jau madam mai ese picha nhi chodne wala",
+            "mai rone lag jaunga aab",
+            "abb man bhi loo tum mere se pyaar krti hoo",
+            "I love you so much 💖",
+            "You know you want to say yes! 😏"
+        ];
+
+        function moveButton(event) {
+            const button = event.target;
+            const container = document.querySelector('.container');
+            
+            noClickCount++;
+            
+            // Change button text with funny messages
+            if (noClickCount <= funnyMessages.length) {
+                button.textContent = funnyMessages[noClickCount - 1];
+            }
+
+            // Make the button move to a random position
+            const maxX = container.offsetWidth - button.offsetWidth - 40;
+            const maxY = container.offsetHeight - button.offsetHeight - 40;
+            
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            button.style.position = 'absolute';
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+
+            // Make Yes button bigger each time
+            const yesBtn = document.querySelector('.yes-btn');
+            const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize * 1.1) + 'px';
+            yesBtn.style.padding = '20px 50px';
+        }
+
+        function sayYes() {
+            document.getElementById('proposal').style.display = 'none';
+            document.getElementById('success').style.display = 'block';
+            createHearts();
+            
+            // Play celebration sound (optional)
+            // You can uncomment this if you add an audio file
+            // const audio = new Audio('celebration.mp3');
+            // audio.play();
+        }
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💝', '💘'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * window.innerWidth + 'px';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 300);
+        }
+    </script>
+</body>
+</html>
